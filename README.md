@@ -43,11 +43,26 @@ StrongSwan (swanctl) を使用して、オンプレミス環境とのIPsecトン
     - **パス**: `/etc/strongswan/swanctl/swanctl.conf`
     - **設定内容**: [swanctl.conf](./vpn-server/swanctl.conf)
 
-2. **設定のポイント**
-    - `local_ts = 10.10.0.0/16`: VPNサーバー側のVPCセグメントを指定。
-    - `remote_ts = 2.56.0.0/24`: オンプレミス（配信機）側のセグメントを指定。
-    - `remote_addrs = %any`: 接続元のオンプレIPを動的に受け入れ可能な設定。
-
+2. **パケット転送とNAT（マスカレード）の設定**
+    - ターゲットVPC（10.10.0.0/16）へ通信を中継するため、以下の設定を適用。
+    - **カーネルパラメータの有効化**:
+      ```bash
+      # IPフォワーディングを有効化（再起動後も有効）
+      echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf
+      sysctl -p
+      ```
+    - **マスカレード設定 (iptables)**:
+      - オンプレ側（2.56.0.0/24）からのパケットをVPNサーバーのIPでNATし、戻り経路を確保します。
+      - **設定保存パス**: `/etc/sysconfig/iptables`
+      - **実行コマンド**:
+        ```bash
+        # マスカレードルールの適用
+        iptables -t nat -A POSTROUTING -s 2.56.0.0/24 -d 10.10.0.0/16 -j MASQUERADE
+        
+        # 設定の永続化（再起動対策）
+        iptables-save > /etc/sysconfig/iptables
+        ```
+        
 3. **サービスの起動と設定反映**
     ```bash
     # swanctlの設定を読み込み
