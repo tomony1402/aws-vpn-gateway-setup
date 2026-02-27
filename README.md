@@ -80,11 +80,11 @@ StrongSwan (swanctl) を使用して、オンプレミス環境とのIPsecトン
     - **反映手順**:
       ```bash
       # ファイル権限を適切に設定（NetworkManagerの仕様）
-      chmod 600 /etc/NetworkManager/system-connections/*.nmconnection
+      chmod 600 /etc/NetworkManager/system-connections/enX0.nmconnection
       
       # 設定の再読み込みと反映
       nmcli connection reload
-      nmcli connection up [接続名]
+      nmcli connection up enX0
       
       # 反映確認
       ip addr show
