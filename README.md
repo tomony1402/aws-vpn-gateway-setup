@@ -93,7 +93,7 @@ StrongSwan (swanctl) を使用して、オンプレミス環境とのIPsecトン
 3. **設定ファイルの配置**
     - AWS側のVPNサーバーへ接続するための設定を記述します。
     - **パス**: `/etc/swanctl/swanctl.conf`
-    - **設定内容**: [swanctl.conf](./onprem/etc/swanctl/swanctl.conf)
+    - **設定内容**: [swanctl.conf](./on-premises/swanctl.conf)
 
 4. **VPN接続の開始と確認**
     - 設定を読み込み、手動でトンネルを確立させます。
