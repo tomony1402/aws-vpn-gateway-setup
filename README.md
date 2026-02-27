@@ -40,8 +40,8 @@ StrongSwan (swanctl) を使用して、オンプレミス環境とのIPsecトン
 
 1. **設定ファイルの配置**
     - 以下のパスに設定ファイルを配置。
-    - パス: `/etc/strongswan/swanctl/swanctl.conf`
-    - 設定内容: [swanctl.conf](./strongswan/swanctl.conf) ※リンク先参照
+　　- パス: `/etc/strongswan/swanctl/swanctl.conf`
+　　- 設定内容: [swanctl.conf](./etc/strongswan/swanctl/swanctl.conf)
 
 2. **設定のポイント**
     - `local_ts = 10.10.0.0/16`: VPNサーバー側のVPCセグメントを指定。
