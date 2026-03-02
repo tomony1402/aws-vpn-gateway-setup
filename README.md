@@ -66,10 +66,10 @@ cat publickey
     ```ini
     [Interface]
     PrivateKey = <オンプレ機の秘密鍵>
-    Address = 10.30.0.101/24
+    Address = 10.30.0.101/24　　   #38を101としているので39を102としてください
 
     [Peer]
-    PublicKey = <AWS側の公開鍵>
+    PublicKey = eDjMW2D9r8GfAw9A9lGeAs1EL6uNDhZYdEquZWsXJnM=
     Endpoint = <AWSルーターのグローバルIP>:51820
     # 配信機（10.10帯）を含むように範囲を指定
     AllowedIPs = 10.30.0.0/24, 10.10.0.0/16
@@ -86,7 +86,7 @@ cat publickey
 1. **WireGuard設定 (`/etc/wireguard/wg0.conf`)**:
    ```ini
    [Interface]
-   PrivateKey = <EC2側の秘密鍵>
+   PrivateKey = SOoC28kVj3d25dWOEzPAMkKx8UY0DiZc7+CqfbDazlE=
    # VPNネットワーク内でのこのルーターのIP
    Address = 10.30.0.1/24
    # 待ち受けポート（セキュリティグループでUDP 51820を許可）
