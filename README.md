@@ -52,6 +52,7 @@ cat publickey
 2. **NAT（マスカレード）設定**:
     ```bash
     # 10.30帯からの通信が eth0(VPC側) へ出ていく時に送信元IPを書き換え
+    dnf install iptables -y
     iptables -t nat -A POSTROUTING -s 10.30.0.0/24 -o eth0 -j MASQUERADE
     
     # 設定の保存と永続化
