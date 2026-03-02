@@ -78,6 +78,7 @@ cat publickey
     
 2. **接続開始**:
     ```bash
+    wg-quick down wg0 (スナップショットからの場合)
     wg-quick up wg0
 　　
   
@@ -106,3 +107,4 @@ cat publickey
 - **ICMP**: オンプレ機(10.30.0.101) → 配信機(10.10.240.183) 疎通成功。
 - **SMTP**: オンプレ機 → 配信機(Port 25) 接続成功。
     - 配信機側の `maillog` にて `connect from ip-10-20-1-109.ap-northeast-1.compute.internal` の記録を確認。
+-  systemctl enable wg-quick@wg0　自動起動設定
