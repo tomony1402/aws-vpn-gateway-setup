@@ -98,7 +98,7 @@ cat publickey
    AllowedIPs = 10.30.0.101/32
 
    # 2台目（追加）
-　 [Peer]
+   [Peer]
 　 PublicKey = <2台目の公開鍵>
    AllowedIPs = 10.30.0.102/32
    ```
