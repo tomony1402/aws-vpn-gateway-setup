@@ -108,3 +108,4 @@ cat publickey
 - **SMTP**: オンプレ機 → 配信機(Port 25) 接続成功。
     - 配信機側の `maillog` にて `connect from ip-10-20-1-109.ap-northeast-1.compute.internal` の記録を確認。
 -  systemctl enable wg-quick@wg0　自動起動設定
+-  systemctl is-enabled wg-quick@wg0　で反映されたか確認
