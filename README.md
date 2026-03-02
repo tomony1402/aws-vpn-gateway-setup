@@ -107,7 +107,7 @@ cat publickey
   ### 設定の反映（再起動）
   ```bash
   systemctl restart wg-quick@wg0
- 
+  ```
 2. **接続開始**:
     ```bash
     wg-quick up wg0
