@@ -110,7 +110,7 @@ cat publickey
 2. **接続開始**:
     ```bash
     wg-quick up wg0
-　　
+　　```
   
 ## 4. 疎通確認
 -  systemctl enable wg-quick@wg0　自動起動設定
