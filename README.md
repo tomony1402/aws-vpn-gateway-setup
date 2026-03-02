@@ -96,17 +96,24 @@ cat publickey
    [Peer]
    PublicKey = <オンプレ側の公開鍵>
    AllowedIPs = 10.30.0.101/32
+
+   # 2台目（追加）
+　 [Peer]
+　 PublicKey = <2台目の公開鍵>
+   AllowedIPs = 10.30.0.102/32
    ```
-   
+   **設定後の反映（再起動）**
+   systemctl restart wg-quick@wg0
+
 2. **接続開始**:
     ```bash
     wg-quick up wg0
 　　
   
 ## 4. 疎通確認
--  systemctl restart wg-quick@wg0 設定反映
 -  systemctl enable wg-quick@wg0　自動起動設定
 -  systemctl is-enabled wg-quick@wg0　で反映されたか確認
 - **ICMP**: オンプレ機(10.30.0.101) → 配信機(10.10.240.183) 疎通成功。
 - **SMTP**: オンプレ機 → 配信機(Port 25) 接続成功。
     - 配信機側の `maillog` にて `connect from ip-10-20-1-109.ap-northeast-1.compute.internal` の記録を確認。
+
