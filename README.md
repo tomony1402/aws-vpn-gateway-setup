@@ -107,7 +107,6 @@ cat publickey
    ```bash
    systemctl restart wg-quick@wg0
    
-  
 ## 4. 疎通確認
 -  systemctl enable wg-quick@wg0　自動起動設定
 -  systemctl is-enabled wg-quick@wg0　で反映されたか確認
