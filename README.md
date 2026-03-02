@@ -99,7 +99,7 @@ cat publickey
 
    # 2台目（追加）
    [Peer]
-　 PublicKey = <2台目の公開鍵>
+   PublicKey = <2台目の公開鍵>
    AllowedIPs = 10.30.0.102/32
    ```
    **設定後の反映（再起動）**
