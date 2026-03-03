@@ -115,4 +115,6 @@ cat publickey
 - **ICMP**: オンプレ機から配信機(10.10.49.210等)
 - **SMTP**: オンプレ機 → 配信機(Port 25) 接続成功。
     - 配信機側の `maillog` にて `connect from ip-10-20-1-109.ap-northeast-1.compute.internal` の記録を確認。
+- dnf update　最後にupdateで終了
+     
 
