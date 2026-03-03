@@ -105,7 +105,8 @@ cat publickey
    
    ### 設定の反映（再起動）
    ```bash
-   systemctl restart wg-quick@wg0
+   wg syncconf wg0 <(wg-quick strip wg0)
+   wg show
    
 ## 4. 疎通確認
 -  systemctl enable wg-quick@wg0　自動起動設定
